@@ -1,29 +1,28 @@
+---
 name: ChestShop
 main: ChestShop\ChestShop
-version: 2.2.0
-api: [3.0.0]
+version: 2.2.1
+api:
+- 3.0.0
 load: POSTWORLD
 author: MinecrafterJPN
-description: A PocketMine-MP plugin which enables you to open a chest shop using a sign
+description: A PocketMine-MP plugin which enables you to open a chest shop using a
+  sign
 website: https://github.com/poggit-orphanage/ChestShop
 depend:
- - EconomyAPI
+- EconomyAPI
 extensions:
- - sqlite3
+- sqlite3
 commands:
- id:
-  description: Search item ID
-  usage: "/id <itemname>"
-  permission: chestshop.command.id
+  id:
+    description: 查看手中物品ID
+    usage: /id
 permissions:
- chestshop:
-  default: op
-  description: "Allows using all the ChestShop things"
-  children:
-   chestshop.command:
+  chestshop:
     default: op
-    description: "Allows using all the PocketMoney commands"
+    description: Allows using all the ChestShop things
     children:
-     chestshop.command.id:
-      default: true
-      description: "Allows searching item ID"
+      chestshop.command:
+        default: op
+        description: Allows using all the PocketMoney commands
+...

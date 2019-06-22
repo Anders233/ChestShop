@@ -5,6 +5,7 @@ namespace ChestShop;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\item\ItemIds;
+use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
 class ChestShop extends PluginBase
@@ -18,17 +19,12 @@ class ChestShop extends PluginBase
     {
         switch ($command->getName()) {
             case "id":
-                $name = array_shift($args);
-                $constants = array_keys((new \ReflectionClass(ItemIds::class))->getConstants());
-                foreach ($constants as $constant) {
-                    if (stripos($constant, $name) !== false) {
-                        $id = constant(ItemIds::class."::$constant");
-                        $constant = str_replace("_", " ", $constant);
-                        $sender->sendMessage("ID:$id $constant");
-                    }
+                if ($sender instanceof Player){
+                    $sender->sendMessage("§a[§eChest§bShop§a]§6:你手中物品的ID为：§a" . $sender->getInventory()->getItemInHand()->getId() . ":" . $sender->getInventory()->getItemInHand()->getDamage());
+                } else {
+                    $sender->sendMessage("§a[§eChest§bShop§a]§6:控制台可以GUN犊子(ノ｀Д)ノ");
                 }
                 return true;
-
             default:
                 return false;
         }
