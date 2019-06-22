@@ -1,6 +1,8 @@
 # Intro
 ChestShop is a plugin for allowing players to create their own item shops.
 
+中文版介绍请访问：[MineBBS](https://www.minebbs.com/resources/chestshop.653/)
+
 # How to use
 
 ### Making a shop
